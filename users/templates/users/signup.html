@@ -1,0 +1,60 @@
+{% extends 'app/index.html' %}
+{% include 'auth' %}
+{% block body %}
+    <div class="wrapper">
+        <div class="container">
+            <h2>Sign Up for MULTI MODEL NLP</h2>
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-12">
+                        <button type="submit" style="font-weight: 600;">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        const empIdField = document.getElementById('id_emp_id');
+        const rollNumberField = document.getElementById('id_roll_number');
+        const yearOfJoiningField = document.getElementById('id_year_of_joining');
+        const programField = document.getElementById('id_program_type');
+        const disciplineField = document.getElementById('id_discipline_type');
+        const genderField = document.getElementById('id_gender_type');
+        const hostelField = document.getElementById('id_hostel_type');
+        empIdField.style.display = 'none';
+        $('select').on('change', function () {
+            if (this.value === 'S') {
+                empIdField.style.display = 'none';
+                rollNumberField.style.display = 'block';
+                yearOfJoiningField.style.display = 'block';
+                programField.style.display = 'block';
+                disciplineField.style.display = 'block';
+                genderField.style.display = 'block';
+                hostelField.style.display = 'block';
+            } else if (this.value === 'AA') {
+                empIdField.style.display = 'block';
+                rollNumberField.style.display = 'none';
+                yearOfJoiningField.style.display = 'none';
+                programField.style.display = 'none';
+                disciplineField.style.display = 'none';
+                genderField.style.display = 'none';
+                hostelField.style.display = 'none';
+            }
+        });
+    </script>
+{% endblock %}

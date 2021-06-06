@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}MULTI MODEL NLP{% endblock %}</title>
+
+    <!-- Loads the path to static files -->
+    <link rel="stylesheet" href='{%static "css/bootstrap.min.css" %}'/>
+    <link rel="stylesheet" href='{%static "css/datepicker.css" %}'/>
+    <link href='{%static "fonts/satisfy.css" %}' rel="stylesheet" type="text/css"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src='{%static "js/jquery.min.js" %}'></script>
+    <script src='{%static "js/popper.min.js" %}'></script>
+    <script src='{%static "js/bootstrap.min.js" %}'></script>
+    <script src='{%static "js/bootstrap-datepicker.js" %}'></script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="{% url 'app:index' %}">MULTI MODEL NLP</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            {% block items %}
+            {% endblock %}
+        </div>
+    </nav>
+{% block body %}
+{% endblock %}
+<style>
+    .title-text {
+        margin: 20px 20px 0;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .empty-text{
+        font-size: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.4;
+        height: 50vh;
+    }
+</style>
+</body>
+</html>
