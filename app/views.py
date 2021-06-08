@@ -6,6 +6,7 @@ from app.forms import *
 from app.models import Leave, LeaveApprovingWarden, LeaveApprovingFaculty
 from datetime import datetime
 from app.utils.cosineSimilarity import *
+from app.utils.tfIDF import *
 
 def index(request):
     if request.user.is_authenticated:
@@ -126,7 +127,15 @@ def docSimilarity(request):
         data1 = data['data1'].lower()
         data2 = data['data2'].lower()
         algorithm = data['algorithm']
-        score = cosineSimilarity(data1, data2)
+        score = -1;
+        if algorithm == 'cosineSimilarity':
+            score = cosineSimilarity(data1, data2)
+        elif algorithm == 'tfIDF':
+            score = tfIDF(data1, data2)
+        else:
+            pass
+
+            # score = 
         print(score)
         # return redirect(request, 'app/error.html', {})
         # if score:
